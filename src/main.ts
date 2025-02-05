@@ -1,6 +1,7 @@
 import { mainAbstractFactory } from './creational/abstract-factory/index.ts';
 import { MainBuilder } from './creational/builder/index.ts';
 import { mainFactory } from './creational/factory-method/index.ts';
+import { mainPrototype } from './creational/prototype/index.ts';
 
 const main = () => {
   console.log('🔶 Pattern Builder::::: ✳️');
@@ -9,6 +10,8 @@ const main = () => {
   mainFactory();
   console.log('🔶 Pattern Abstract Factory::::: ✳️');
   mainAbstractFactory();
+  console.log('🔶 Pattern Prototype::::: ✳️');
+  mainPrototype();
 };
 
 main();
