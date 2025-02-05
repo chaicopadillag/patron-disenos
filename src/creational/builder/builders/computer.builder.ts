@@ -15,7 +15,8 @@
 
 import { ComputerBuilderI } from '../interfaces/computer-builder.interface.ts';
 import { ComputerI } from '../interfaces/computer.interface.ts';
-import { Computer } from './computer.ts';
+import { Computer } from '../models/computer.ts';
+
 
 export class ComputerBuilder implements ComputerBuilderI {
   computer: Computer;
