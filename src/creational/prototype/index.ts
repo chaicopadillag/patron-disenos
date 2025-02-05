@@ -26,11 +26,10 @@ export const mainPrototype = () => {
   console.log(pokemon);
   pokemon.showData();
 
-  const charizard = pokemon.clone();
-  charizard.name = 'Charizard';
-  charizard.type = 'Fire';
-  charizard.level = 3;
-  charizard.attacks.push('Fire Blast');
-  console.log(charizard);
-  charizard.showData();
+  const raichu = pokemon.clone();
+  raichu.name = 'Raichu';
+  raichu.level = 2;
+  raichu.attacks.push('Thunder');
+  console.log(raichu);
+  raichu.showData();
 };

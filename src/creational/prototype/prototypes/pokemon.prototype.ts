@@ -12,6 +12,6 @@ export class PokemonPrototype implements Prototype {
         Name: ${this.name},
         Type: ${this.type},
         Level: ${this.level},
-        Attacks: ${this.attacks.join(', ')}`);
+        Attacks: ${this.attacks.join(', ')} \n`);
   }
 }
