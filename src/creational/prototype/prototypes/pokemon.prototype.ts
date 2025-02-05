@@ -4,12 +4,7 @@ export class PokemonPrototype implements Prototype {
   constructor(public name: string, public type: string, public level: number, public attacks: string[]) {}
 
   clone(): PokemonPrototype {
-    return new PokemonPrototype(
-      this.name,
-      this.type,
-      this.level,
-      this.attacks.map((attack) => attack)
-    );
+    return new PokemonPrototype(this.name, this.type, this.level, [...this.attacks]);
   }
 
   showData(): void {
