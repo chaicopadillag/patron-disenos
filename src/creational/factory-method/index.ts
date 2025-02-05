@@ -20,6 +20,8 @@ export const mainFactory = () => {
   const restaurant = new RestaurantService();
   restaurant.createHamburger();
 
+  console.log('------------------');
+
   const reportService = new ReportService();
   reportService.generateReport();
 };

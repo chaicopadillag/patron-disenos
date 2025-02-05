@@ -21,6 +21,7 @@ export class MainBuilder {
     // ComputerService.getComputerBasic();
     // ComputerService.getAdvancedComputer();
     ComputerService.getDeveloperComputer();
+    console.log('------------------');
     QueryService.execute();
   }
 }
