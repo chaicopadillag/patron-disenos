@@ -1,11 +1,10 @@
-import { Hamburger } from "../interfaces/hamburger.interface.ts";
+import { Hamburger } from '../interfaces/hamburger.interface.ts';
 
 export abstract class Restaurant {
-    abstract createHamburger(): Hamburger;
+  abstract createHamburger(): Hamburger;
 
-    orderHamburger(): void {
-        const hamburger = this.createHamburger();
-        hamburger.prepare();
-    }
-
+  orderHamburger(): void {
+    const hamburger = this.createHamburger();
+    hamburger.prepare();
+  }
 }

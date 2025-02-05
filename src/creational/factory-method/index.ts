@@ -13,11 +13,13 @@
  *
  */
 
-import { RestaurantService } from "./services/restaurant.service.ts";
+import { ReportService } from './services/report.service.ts';
+import { RestaurantService } from './services/restaurant.service.ts';
 
-export const mainFactory = () => { 
+export const mainFactory = () => {
+  const restaurant = new RestaurantService();
+  restaurant.createHamburger();
 
-    const restaurant = new RestaurantService();
-    restaurant.createHamburger()
-
-}
+  const reportService = new ReportService();
+  reportService.generateReport();
+};

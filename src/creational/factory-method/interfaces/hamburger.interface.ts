@@ -1,3 +1,3 @@
 export interface Hamburger {
-    prepare(): void;
- }
+  prepare(): void;
+}
