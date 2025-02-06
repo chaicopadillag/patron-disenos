@@ -1,5 +1,17 @@
+import { Database } from './models/database.model.ts';
 import { DragonBall } from './models/dragon-ball.model.ts';
 import { DragonBallsService } from './services/dragon-balls.service.ts';
+/**
+ * ! Singleton:
+ * Es un patrón de diseño creacional que garantiza que una clase
+ * tenga una única instancia y proporciona un punto de acceso global a ella.
+ *
+ * * Es útil cuando necesitas controlar el acceso a una única instancia
+ * * de una clase, como por ejemplo, en un objeto de base de datos o en un
+ * * objeto de configuración.
+ *
+ * https://refactoring.guru/es/design-patterns/singleton
+ */
 
 export const mainSigleton = () => {
   const dragonBalls = DragonBallsService.getInstance();
@@ -32,4 +44,14 @@ export const mainSigleton = () => {
   dragonBalls.showDragonBalls();
   gokuDragonBall.invokeShenron();
   dragonBalls.invokeShenron();
+  console.log('🔶 --------------------------------- ✳️');
+  const db1 = Database.getInstance();
+  db1.connect();
+
+  const db2 = Database.getInstance();
+  db2.connect();
+
+  console.log('Son iguales:', db1 === db2);
+  db1.desconnect();
+  db2.connect();
 };
