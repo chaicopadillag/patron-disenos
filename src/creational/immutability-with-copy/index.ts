@@ -1,6 +1,7 @@
 import { COLORS } from '../../libs/colors.ts';
 import { CodeEditor } from './models/code-editor.model.ts';
-import { CodeEditorHistory } from './services/code-editor-history.ts';
+import { CodeEditorHistory } from './services/code-editor-history.service.ts';
+import { GameService } from './services/game.service.ts';
 
 /**
  * ! Inmutabilidad con copia
@@ -9,6 +10,13 @@ import { CodeEditorHistory } from './services/code-editor-history.ts';
  *
  *  * Es útil para mantener un historial de estados en aplicaciones interactivas.
  *
+ */
+/**
+ 1.	Completen el método copyWith en la clase Player para que permita 
+ crear una copia con cambios en name, score o level.
+ 
+ 2.	Usen el código cliente para probar el funcionamiento de copyWith, 
+ haciendo cambios en el puntaje, nivel y nombre del jugador.
  */
 
 export const mainImmutableWithCopy = () => {
@@ -41,4 +49,7 @@ export const mainImmutableWithCopy = () => {
   console.log('\n%cDespues Redo:', COLORS.red);
   const redoCodeEditor = history.redo();
   redoCodeEditor.displayState();
+
+  console.log('\n%cPlayer Immutability:', COLORS.orange);
+  GameService.startPlay();
 };
