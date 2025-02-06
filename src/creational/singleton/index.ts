@@ -1,5 +1,6 @@
 import { Database } from './models/database.model.ts';
 import { DragonBall } from './models/dragon-ball.model.ts';
+import { configApp } from './services/config.service.ts';
 import { DragonBallsService } from './services/dragon-balls.service.ts';
 /**
  * ! Singleton:
@@ -54,4 +55,18 @@ export const mainSigleton = () => {
   console.log('Son iguales:', db1 === db2);
   db1.desconnect();
   db2.connect();
+
+  console.log('🔶 --------------------------------- ✳️');
+
+  configApp.set('url', 'https://api.dragonball.com/v1');
+  configApp.set('apiKey', '1234567890');
+  configApp.set('secretKey', '0987654321');
+  configApp.set('token', 'qwertyuiop');
+  configApp.set('apiVersion', 'v1');
+
+  console.log('url:', configApp.get('url'));
+  console.log('apiKey:', configApp.get('apiKey'));
+  console.log('secretKey:', configApp.get('secretKey'));
+  console.log('token:', configApp.get('token'));
+  console.log('apiVersion:', configApp.get('apiVersion'));
 };
