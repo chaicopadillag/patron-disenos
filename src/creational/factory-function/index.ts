@@ -9,6 +9,7 @@
  */
 
 import { saludarIntl } from './factories/internacional.factory.ts';
+import { loggerFactory } from './factories/logger.factory.ts';
 
 export const mainFactoryFunction = () => {
   const saludarIntlEs = saludarIntl('es');
@@ -17,4 +18,13 @@ export const mainFactoryFunction = () => {
   saludarIntlEs('Juan');
   saludarIntlEn('John');
   saludarIntlFr('Jean');
+
+  console.log('-------------------');
+
+  const loggerInfo = loggerFactory('info');
+  const loggerWarn = loggerFactory('warn');
+  const loggerError = loggerFactory('error');
+  loggerInfo('Mensaje de información');
+  loggerWarn('Mensaje de advertencia');
+  loggerError('Mensaje de error');
 };
