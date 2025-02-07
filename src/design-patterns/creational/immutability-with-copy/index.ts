@@ -1,4 +1,4 @@
-import { COLORS } from '../../libs/colors.ts';
+import { COLORS } from '../../../libs/colors.ts';
 import { CodeEditor } from './models/code-editor.model.ts';
 import { CodeEditorHistory } from './services/code-editor-history.service.ts';
 import { GameService } from './services/game.service.ts';

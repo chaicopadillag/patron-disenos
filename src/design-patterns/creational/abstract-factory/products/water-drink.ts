@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { Drink } from '../interfaces/drink.interface.ts';
 
 export class WaterDrink implements Drink {

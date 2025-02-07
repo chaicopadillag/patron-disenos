@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { ReportI } from '../interfaces/report.interface.ts';
 
 export class InventoryReport implements ReportI {

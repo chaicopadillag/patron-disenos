@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { ComputerBuilder } from '../builders/computer.builder.ts';
 
 export class ComputerService {

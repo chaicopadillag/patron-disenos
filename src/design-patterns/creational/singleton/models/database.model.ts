@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { DatabaseI } from '../interfaces/database.interface.ts';
 
 export class Database implements DatabaseI {

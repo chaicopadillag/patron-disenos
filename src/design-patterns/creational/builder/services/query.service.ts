@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { QueryBuilder } from '../builders/query.builder.ts';
 
 export class QueryService {

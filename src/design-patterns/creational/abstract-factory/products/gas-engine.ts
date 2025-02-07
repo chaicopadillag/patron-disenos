@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { Engine } from '../interfaces/engine.interface.ts';
 
 export default class GasEngine implements Engine {

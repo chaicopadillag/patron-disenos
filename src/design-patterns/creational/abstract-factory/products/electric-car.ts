@@ -1,4 +1,4 @@
-import { COLORS } from '../../../libs/colors.ts';
+import { COLORS } from '../../../../libs/colors.ts';
 import { Vehicle } from '../interfaces/vehicle.interface.ts';
 
 export class ElectricCar implements Vehicle {
