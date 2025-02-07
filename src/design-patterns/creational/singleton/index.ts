@@ -45,7 +45,7 @@ export const mainSigleton = () => {
   dragonBalls.showDragonBalls();
   gokuDragonBall.invokeShenron();
   dragonBalls.invokeShenron();
-  console.log('🔶 --------------------------------- ✳️');
+  console.log('---------------------------------');
   const db1 = Database.getInstance();
   db1.connect();
 
@@ -56,7 +56,7 @@ export const mainSigleton = () => {
   db1.desconnect();
   db2.connect();
 
-  console.log('🔶 --------------------------------- ✳️');
+  console.log('---------------------------------');
 
   configApp.set('url', 'https://api.dragonball.com/v1');
   configApp.set('apiKey', '1234567890');
