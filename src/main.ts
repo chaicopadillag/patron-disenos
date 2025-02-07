@@ -6,6 +6,7 @@ import { mainImmutableWithCopy } from './design-patterns/creational/immutability
 import { mainPrototype } from './design-patterns/creational/prototype/index.ts';
 import { mainSigleton } from './design-patterns/creational/singleton/index.ts';
 import { mainAdapter } from './design-patterns/structural/adapter/index.ts';
+import { mainBrigde } from './design-patterns/structural/bridge/index.ts';
 
 const main = () => {
   console.log('===== Creational Patterns =====');
@@ -26,6 +27,8 @@ const main = () => {
   console.log('===== Structural Patterns =====');
   console.log('🔶 Pattern Adapter::::: ✳️');
   mainAdapter();
+  console.log('🔶 Pattern Brigde::::: ✳️');
+  mainBrigde();
 };
 
 main();
