@@ -5,8 +5,10 @@ import { mainFactory } from './design-patterns/creational/factory-method/index.t
 import { mainImmutableWithCopy } from './design-patterns/creational/immutability-with-copy/index.ts';
 import { mainPrototype } from './design-patterns/creational/prototype/index.ts';
 import { mainSigleton } from './design-patterns/creational/singleton/index.ts';
+import { mainAdapter } from './design-patterns/structural/adapter/index.ts';
 
 const main = () => {
+  console.log('===== Creational Patterns =====');
   console.log('🔶 Pattern Builder::::: ✳️');
   MainBuilder.run();
   console.log('🔶 Pattern Factory Method::::: ✳️');
@@ -21,6 +23,9 @@ const main = () => {
   mainSigleton();
   console.log('🔶 Factory Function::::: ✳️');
   mainFactoryFunction();
+  console.log('===== Structural Patterns =====');
+  console.log('🔶 Pattern Adapter::::: ✳️');
+  mainAdapter();
 };
 
 main();
