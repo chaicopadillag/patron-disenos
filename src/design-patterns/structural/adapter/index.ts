@@ -1,4 +1,8 @@
 import { AppLoggerAdapter } from './adapters/logger-app.adapter.ts';
+import { MercadoPagoAdapter } from './adapters/mercado-pago.adapter.ts';
+import { PayPalAdapter } from './adapters/paypal.adapter.ts';
+import { StripeAdapter } from './adapters/stripe.adapter.ts';
+import { PaymentI } from './interfaces/payment.interface.ts';
 
 /**
  * ! Patrón Adapter
@@ -19,4 +23,22 @@ export const mainAdapter = () => {
   logger.log('Log message');
   logger.error('Error message');
   logger.warn('Warning message');
+
+  console.log('----------------------------------------');
+
+  const paymentAmount = 100;
+  const paypalProcessor: PaymentI = new PayPalAdapter();
+  const stripeProcessor: PaymentI = new StripeAdapter();
+  const mercadoPagoProcessor: PaymentI = new MercadoPagoAdapter();
+
+  // Procesar pagos con los diferentes servicios
+  // Los 3 procesadores de pago trabajan exactamente igual después de adaptaros
+  console.log('Usando PayPal:');
+  paypalProcessor.pay(paymentAmount);
+
+  console.log('\nUsando Stripe:');
+  stripeProcessor.pay(paymentAmount);
+
+  console.log('\nUsando MercadoPago:');
+  mercadoPagoProcessor.pay(paymentAmount);
 };
