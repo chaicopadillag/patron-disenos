@@ -6,12 +6,12 @@ export class ReportService {
   reportFactory: ReportFactory;
 
   generateReport() {
-    const reportType = prompt('¿Qué tipo de reporte deseas? (sales/inventory)');
+    const reportType = prompt('¿Qué tipo de reporte deseas? (sales/inventory) default is sales');
 
-    if (reportType === 'sales') {
-      this.reportFactory = new SalesReportFactory();
-    } else {
+    if (reportType === 'inventory') {
       this.reportFactory = new InventoryReportFactory();
+    } else {
+      this.reportFactory = new SalesReportFactory();
     }
     this.reportFactory.generateReport();
   }

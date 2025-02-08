@@ -1,6 +1,6 @@
 import { CoordinatesI, IconLocationI } from '../interfaces/icon-location.interface.ts';
 
-export class MapLocationService {
+export class MapLocation {
   constructor(protected coordinates: CoordinatesI, protected icon: IconLocationI) {}
 
   display(): void {

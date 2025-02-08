@@ -7,12 +7,9 @@ export class RestaurantService {
   private restaurant: Restaurant;
 
   createHamburger() {
-    const order = prompt('Enter your order: chicken, beef or bean');
+    const order = prompt('Enter your order: chicken, beef or bean: defuald is chicken');
 
     switch (order) {
-      case 'chicken':
-        this.restaurant = new ChickenRestaurant();
-        break;
       case 'beef':
         this.restaurant = new BeefRestaurant();
         break;
@@ -20,7 +17,8 @@ export class RestaurantService {
         this.restaurant = new BeanRestaurant();
         break;
       default:
-        throw new Error('Invalid order');
+        this.restaurant = new ChickenRestaurant();
+        break;
     }
 
     this.restaurant.orderHamburger();
