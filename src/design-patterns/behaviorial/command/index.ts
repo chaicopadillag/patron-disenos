@@ -1,8 +1,14 @@
+import { COLORS } from '../../../libs/colors.ts';
+import { CopyCommand } from './commands/copy.command.ts';
 import { FanOffCommand, FanOnCommand } from './commands/fan.command.ts';
 import { LightOffCommand, LightOnCommand } from './commands/light.command.ts';
+import { PasteCommand } from './commands/paste.command.ts';
+import { UndoCommand } from './commands/undo.command.ts';
 import { RemoteControl } from './invoker/remote-control.ts';
+import { Toolbar } from './invoker/toolbar.ts';
 import { Fan } from './receivers/fan.ts';
 import { Light } from './receivers/light.ts';
+import { TextEditor } from './receivers/text-editor.ts';
 /**
  * ! Patrón Command
  * Este patrón encapsula una solicitud como un objeto,
@@ -60,4 +66,48 @@ export const mainCommand = () => {
       isPressed = false;
     }
   } while (isPressed);
+
+  console.log('-------------------');
+
+  const editor = new TextEditor();
+  const toolbar = new Toolbar();
+
+  // Crear comandos para el editor
+  const copyCommand = new CopyCommand(editor);
+  const pasteCommand = new PasteCommand(editor);
+  const undoCommand = new UndoCommand(editor);
+
+  // Asignar comandos a los botones de la barra de herramientas
+  toolbar.setCommand('copy', copyCommand);
+  toolbar.setCommand('paste', pasteCommand);
+  toolbar.setCommand('undo', undoCommand);
+
+  // Simulación de edición de texto
+  editor.type('H');
+  editor.type('o');
+  editor.type('l');
+  editor.type('a');
+  editor.type(' ');
+  editor.type('M');
+  editor.type('u');
+  editor.type('n');
+  editor.type('d');
+  editor.type('o');
+  editor.type('!');
+  console.log(`Texto actual: %c"${editor.getText()}"`, COLORS.green);
+
+  // Usar la barra de herramientas
+  console.log('\nCopiando texto:');
+  toolbar.clickButton('copy');
+
+  console.log('\nPegando texto:');
+  toolbar.clickButton('paste');
+
+  console.log('\nDeshaciendo la última acción:');
+  toolbar.clickButton('undo');
+
+  console.log('\nDeshaciendo de nuevo:');
+  toolbar.clickButton('undo');
+
+  console.log(`\nTexto final: "${editor.getText()}"`);
 };
