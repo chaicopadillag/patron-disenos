@@ -9,6 +9,7 @@ import { mainAdapter } from './design-patterns/structural/adapter/index.ts';
 import { mainBrigde } from './design-patterns/structural/bridge/index.ts';
 import { mainComposite } from './design-patterns/structural/composite/index.ts';
 import { mainDecorator } from './design-patterns/structural/decorator/index.ts';
+import { mainFacade } from './design-patterns/structural/facade/index.ts';
 
 const main = () => {
   console.log('===== Creational Patterns =====');
@@ -35,6 +36,8 @@ const main = () => {
   mainComposite();
   console.log('🔶 Pattern Decorator::::: ✳️');
   mainDecorator();
+  console.log('🔶 Pattern Facade::::: ✳️');
+  mainFacade();
 };
 
 main();
