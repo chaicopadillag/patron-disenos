@@ -4,7 +4,7 @@ import { User } from '../models/user.model.ts';
 import { ConfidentialDocument } from '../real/confidential-document.ts';
 
 export class DocumentProxy implements DocumentI {
-  constructor(private confidentialDocument: ConfidentialDocument, private mustHaverRoles: RoleType[]) {}
+  constructor(private confidentialDocument: ConfidentialDocument, private mustHaverRoles: RoleType[] = []) {}
 
   displayContent(user: User): void {
     if (this.mustHaverRoles.includes(user.getRole())) {
