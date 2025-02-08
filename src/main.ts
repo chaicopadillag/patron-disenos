@@ -8,6 +8,7 @@ import { mainSigleton } from './design-patterns/creational/singleton/index.ts';
 import { mainAdapter } from './design-patterns/structural/adapter/index.ts';
 import { mainBrigde } from './design-patterns/structural/bridge/index.ts';
 import { mainComposite } from './design-patterns/structural/composite/index.ts';
+import { mainDecorator } from './design-patterns/structural/decorator/index.ts';
 
 const main = () => {
   console.log('===== Creational Patterns =====');
@@ -32,6 +33,8 @@ const main = () => {
   mainBrigde();
   console.log('🔶 Pattern Composite::::: ✳️');
   mainComposite();
+  console.log('🔶 Pattern Decorator::::: ✳️');
+  mainDecorator();
 };
 
 main();
