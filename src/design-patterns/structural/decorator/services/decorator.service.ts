@@ -49,7 +49,5 @@ export class DecoratorService {
     character = new RingDecorator(character);
     console.log('\nCon Anillo:', character.getDescription());
     console.log('Estadísticas:', character.getStats());
-
-    console.log('\n\n');
   }
 }
