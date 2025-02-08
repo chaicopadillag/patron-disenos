@@ -1,5 +1,8 @@
 import { Player } from './models/player.model.ts';
+import { User } from './models/user.model.ts';
+import { DocumentProxy } from './proxies/document-proxy.ts';
 import { MagicPortal } from './proxies/magic-portal.proxy.ts';
+import { ConfidentialDocument } from './real/confidential-document.ts';
 import { SecretRoom } from './real/secret-rom.ts';
 
 /**
@@ -24,4 +27,17 @@ export const mainProxy = () => {
   portal.enter(player1);
   portal.enter(player2);
   portal.enter(player3);
+
+  console.log('-------------------');
+  const confidentialDoc = new ConfidentialDocument('Este es el contenido confidencial del documento.');
+  const proxy = new DocumentProxy(confidentialDoc, ['admin']);
+
+  const user1 = new User('Juan', 'user');
+  const user2 = new User('Ana', 'admin');
+
+  console.log('Intento de acceso del usuario 1:');
+  proxy.displayContent(user1); // Debería denegar el acceso
+
+  console.log('\nIntento de acceso del usuario 2:');
+  proxy.displayContent(user2); // Debería permitir el acceso
 };
