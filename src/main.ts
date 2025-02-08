@@ -1,3 +1,4 @@
+import { mainChainOfResponsibility } from './design-patterns/behaviorial/chain-of-responsibility/index.ts';
 import { mainAbstractFactory } from './design-patterns/creational/abstract-factory/index.ts';
 import { MainBuilder } from './design-patterns/creational/builder/index.ts';
 import { mainFactoryFunction } from './design-patterns/creational/factory-function/index.ts';
@@ -44,6 +45,9 @@ const main = () => {
   mainFlyweight();
   console.log('🔶 Pattern Proxy::::: ✳️');
   mainProxy();
+  console.log('===== Behavioral Patterns =====');
+  console.log('🔶 Pattern Chain of Responsibility::::: ✳️');
+  mainChainOfResponsibility();
 };
 
 main();
