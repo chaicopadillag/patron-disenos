@@ -1,3 +1,4 @@
+import { COLORS } from '../../../../libs/colors.ts';
 import { NotificationDecorator } from './notification.decorator.ts';
 
 export class EmailDecorator extends NotificationDecorator {
@@ -7,6 +8,6 @@ export class EmailDecorator extends NotificationDecorator {
   }
 
   private sendEmail(message: string): void {
-    console.log(`Enviando notificación por email: ${message}`);
+    console.log(`%cEnviando notificación por email: ${message}`, COLORS.yellow);
   }
 }

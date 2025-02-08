@@ -1,3 +1,4 @@
+import { COLORS } from '../../../../libs/colors.ts';
 import { NotificationDecorator } from './notification.decorator.ts';
 
 export class SMSDecorator extends NotificationDecorator {
@@ -7,6 +8,6 @@ export class SMSDecorator extends NotificationDecorator {
   }
 
   private sendSMS(message: string): void {
-    console.log(`Enviando notificación por SMS: ${message}`);
+    console.log(`%cEnviando notificación por SMS: ${message}`, COLORS.orange);
   }
 }
