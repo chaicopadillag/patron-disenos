@@ -11,6 +11,7 @@ import { CharacterI } from '../interfaces/character.interface.ts';
 export class DecoratorService {
   public static run(): void {
     this.sendNotification();
+    console.log('\n---------------------------------\n');
     this.createCharacter();
   }
 
