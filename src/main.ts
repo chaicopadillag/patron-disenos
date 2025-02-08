@@ -10,6 +10,7 @@ import { mainBrigde } from './design-patterns/structural/bridge/index.ts';
 import { mainComposite } from './design-patterns/structural/composite/index.ts';
 import { mainDecorator } from './design-patterns/structural/decorator/index.ts';
 import { mainFacade } from './design-patterns/structural/facade/index.ts';
+import { mainFlyweight } from './design-patterns/structural/flyweight/index.ts';
 
 const main = () => {
   console.log('===== Creational Patterns =====');
@@ -38,6 +39,8 @@ const main = () => {
   mainDecorator();
   console.log('🔶 Pattern Facade::::: ✳️');
   mainFacade();
+  console.log('🔶 Pattern Flyweight::::: ✳️');
+  mainFlyweight();
 };
 
 main();
