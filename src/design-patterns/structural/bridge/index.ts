@@ -6,6 +6,7 @@ import { SmsChannel } from './implementations/sms-channel.ts';
 import { SwordAttack } from './implementations/sword-attack.ts';
 import { AlertNotification } from './services/alert-notification.service.ts';
 import { Mage } from './services/mage.character.ts';
+import NotificationsService from './services/notifications.service.ts';
 import { PushNotification } from './services/push-notification.service.ts';
 import { ReminderNotification } from './services/reminder-notification.service.ts';
 import { Warrior } from './services/warrior.character.ts';
@@ -40,4 +41,11 @@ export const mainBrigde = () => {
   // Crear una notificación de push usando el canal de notificación push
   const push = new PushNotification(new PushNotifyChannel());
   push.notify('Nueva actualización disponible. Haz clic para instalar.');
+
+  console.log('---------------------------------');
+
+  const notificationService = new NotificationsService([new EmailChannel(), new SmsChannel()]);
+  notificationService.notify('Alerta de seguridad: Se ha detectado un acceso no autorizado.');
+  notificationService.addChannel(new PushNotifyChannel());
+  notificationService.notify('Tu orden ha sido enviada. Haz clic para rastrearla.');
 };
