@@ -11,6 +11,7 @@ import { mainComposite } from './design-patterns/structural/composite/index.ts';
 import { mainDecorator } from './design-patterns/structural/decorator/index.ts';
 import { mainFacade } from './design-patterns/structural/facade/index.ts';
 import { mainFlyweight } from './design-patterns/structural/flyweight/index.ts';
+import { mainProxy } from './design-patterns/structural/proxy/index.ts';
 
 const main = () => {
   console.log('===== Creational Patterns =====');
@@ -41,6 +42,8 @@ const main = () => {
   mainFacade();
   console.log('🔶 Pattern Flyweight::::: ✳️');
   mainFlyweight();
+  console.log('🔶 Pattern Proxy::::: ✳️');
+  mainProxy();
 };
 
 main();
