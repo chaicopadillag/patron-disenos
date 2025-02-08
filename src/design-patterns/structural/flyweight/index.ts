@@ -1,5 +1,8 @@
+import { COLORS } from '../../../libs/colors.ts';
+import { BulletTypeFactory } from './factories/bullet-type.factory.ts';
 import { LocationFactory } from './factories/location.factory.ts';
-import { MapLocation } from './flyweights/map-location.ts';
+import { MapLocation } from './models/map-location.ts';
+import { ShootingSystemService } from './services/shooting-system.service.ts';
 
 /**
  * ! Patrón Flyweight
@@ -29,4 +32,18 @@ export const mainFlyweight = () => {
     new MapLocation({ lat: 11, lng: 11 }, factory.createLocation('Estadio', 'stadium', 'Estadio de fútbol', 'Calle 11'))
   ];
   locations.forEach((location) => location.display());
+
+  console.log('\n------------------------------------\n');
+
+  const bulletFactory = new BulletTypeFactory();
+  const shootingSystem = new ShootingSystemService(bulletFactory);
+
+  // Disparar varias balas de diferentes tipos
+  shootingSystem.shoot(10, 20, 0, 'Pistola', 10, 'Gris');
+  shootingSystem.shoot(15, 25, 90, 'Escopeta', 20, 'Rojo');
+  shootingSystem.shoot(20, 30, 180, 'Rifle', 15, 'Verde');
+  shootingSystem.shoot(10, 20, 45, 'Pistola', 10, 'Gris');
+  shootingSystem.shoot(25, 35, 270, 'Escopeta', 20, 'Rojo');
+
+  console.log(`Total de balas disparadas: %c${shootingSystem.getBulletCount()}\n`, COLORS.yellow);
 };
