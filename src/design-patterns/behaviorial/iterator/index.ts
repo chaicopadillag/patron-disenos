@@ -1,4 +1,6 @@
+import { CardCollection } from './collections/card.collection.ts';
 import PokemonCollection from './collections/pokemon.collection.ts';
+import { Card } from './models/card.model.ts';
 import { Pokemon } from './models/pokemon.model.ts';
 
 /**
@@ -36,5 +38,17 @@ export const mainIterator = () => {
     if (pokemon) {
       console.log(`Pokemon: ${pokemon?.name} - Type: ${pokemon?.type}`);
     }
+  }
+  console.log('------------------------------------');
+  const deck = new CardCollection();
+  // Agregar algunas cartas a la colección
+  deck.addCard(new Card('As de Corazones', 1));
+  deck.addCard(new Card('Rey de Corazones', 13));
+  deck.addCard(new Card('Reina de Corazones', 12));
+  deck.addCard(new Card('Jota de Corazones', 11));
+  // Recorrer la colección en orden usando for...of
+  console.log('Recorriendo la colección de cartas:');
+  for (const card of deck) {
+    console.log(`Carta: ${card.name}, Valor: ${card.value}`);
   }
 };
