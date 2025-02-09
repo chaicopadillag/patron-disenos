@@ -1,5 +1,6 @@
 import { mainChainOfResponsibility } from './design-patterns/behaviorial/chain-of-responsibility/index.ts';
 import { mainCommand } from './design-patterns/behaviorial/command/index.ts';
+import { mainIterator } from './design-patterns/behaviorial/iterator/index.ts';
 import { mainAbstractFactory } from './design-patterns/creational/abstract-factory/index.ts';
 import { MainBuilder } from './design-patterns/creational/builder/index.ts';
 import { mainFactoryFunction } from './design-patterns/creational/factory-function/index.ts';
@@ -51,6 +52,8 @@ const main = () => {
   mainChainOfResponsibility();
   console.log('🔶 Pattern Command::::: ✳️');
   mainCommand();
+  console.log('🔶 Pattern Iterator::::: ✳️');
+  mainIterator();
 };
 
 main();
