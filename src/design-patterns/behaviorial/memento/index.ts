@@ -1,5 +1,7 @@
 import { COLORS } from '../../../libs/colors.ts';
-import { GameHistory } from './originators/game-history.ts';
+import { BoardHistory } from './caretakers/board-history.ts';
+import { GameHistory } from './caretakers/game-history.ts';
+import { DrawingBoard } from './originators/drawing-board.ts';
 import { Game } from './originators/game.ts';
 /**
  * !Patrón Memento
@@ -28,4 +30,27 @@ export const mainMemento = () => {
   game.restore(gameHistory.pop()!);
   console.log('%cDespués de restaurar el juego', COLORS.blue);
   game.restore(gameHistory.pop()!);
+
+  console.log('\n-------------------\n');
+
+  const drawingBoard = new DrawingBoard();
+  const history = new BoardHistory();
+
+  // El usuario agrega figuras y guarda el estado en cada paso
+  drawingBoard.addShape('Círculo');
+  history.push(drawingBoard.save());
+
+  drawingBoard.addShape('Cuadrado');
+  history.push(drawingBoard.save());
+
+  drawingBoard.addShape('Triángulo');
+  drawingBoard.showBoard(); // Mostrar estado actual de la pizarra
+
+  // Deshacer el último cambio
+  drawingBoard.restore(history.pop()!);
+  drawingBoard.showBoard(); // Mostrar estado después de deshacer
+
+  // Deshacer otro cambio
+  drawingBoard.restore(history.pop()!);
+  drawingBoard.showBoard(); // Mostrar estado después de deshacer nuevamente
 };
