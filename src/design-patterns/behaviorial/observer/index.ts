@@ -1,4 +1,6 @@
-import { User } from './observers/user.subscriber.ts';
+import { User } from './observers/user.observer.ts';
+import { WeatherApp } from './observers/weather-app.observer.ts';
+import { WeatherStation } from './subjects/weather-station.object.ts';
 import { YoutubeChannel } from './subjects/youtube-channel.object.ts';
 /**
  * ! Patrón Observer
@@ -33,4 +35,28 @@ export const mainObserver = () => {
   youtubeChannel.unsubscribe(juan);
   youtubeChannel.unsubscribe(maria);
   youtubeChannel.publishVideo('Adrezando TypeScript con NodeJS');
+
+  console.log('\n------------------------------------\n');
+
+  const weatherStation = new WeatherStation();
+
+  // Crear aplicaciones
+  const flutterWeatherApp = new WeatherApp('Flutter WeatherApp');
+  const reactNativeWeatherApp = new WeatherApp('React Native WeatherApp');
+  const weatherTrackerApp = new WeatherApp('Weather Tracker App');
+
+  // Suscribir aplicaciones a la estación meteorológica
+  weatherStation.subscribe(flutterWeatherApp);
+  weatherStation.subscribe(reactNativeWeatherApp);
+
+  // Actualizar el clima
+  weatherStation.setWeather('Lluvioso');
+
+  // Agregar una nueva aplicación
+  weatherStation.subscribe(weatherTrackerApp);
+  weatherStation.setWeather('Nublado');
+
+  // Una aplicación se da de baja
+  weatherStation.unsubscribe(reactNativeWeatherApp);
+  weatherStation.setWeather('Tormenta eléctrica');
 };
