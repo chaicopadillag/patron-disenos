@@ -1,4 +1,4 @@
-export interface Subscriber {
+export interface SubscriberObserver {
   name: string;
   notify(message: string): void;
 }
