@@ -2,8 +2,8 @@ import { COLORS } from '../../../../libs/colors.ts';
 import { Observer } from '../interfaces/observer.interface.ts';
 
 export class WeatherStation {
-  public observers: Observer[] = [];
-  public weatherData = 'Soleado';
+  private observers: Observer[] = [];
+  private weatherData = 'Soleado';
 
   subscribe(observer: Observer): void {
     this.observers.push(observer);
