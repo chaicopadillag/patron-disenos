@@ -3,6 +3,7 @@ import { mainCommand } from './design-patterns/behaviorial/command/index.ts';
 import { mainIterator } from './design-patterns/behaviorial/iterator/index.ts';
 import { mainMediator } from './design-patterns/behaviorial/mediator/index.ts';
 import { mainMemento } from './design-patterns/behaviorial/memento/index.ts';
+import { mainObserver } from './design-patterns/behaviorial/observer/index.ts';
 import { mainAbstractFactory } from './design-patterns/creational/abstract-factory/index.ts';
 import { MainBuilder } from './design-patterns/creational/builder/index.ts';
 import { mainFactoryFunction } from './design-patterns/creational/factory-function/index.ts';
@@ -60,6 +61,8 @@ const main = () => {
   mainMediator();
   console.log('🔶 Pattern Memento::::: ✳️');
   mainMemento();
+  console.log('🔶 Pattern Observer::::: ✳️');
+  mainObserver();
 };
 
 main();
