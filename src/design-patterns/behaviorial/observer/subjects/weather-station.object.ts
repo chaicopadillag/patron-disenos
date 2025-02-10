@@ -7,6 +7,7 @@ export class WeatherStation {
 
   subscribe(observer: Observer): void {
     this.observers.push(observer);
+    observer.update(this.weatherData);
     console.log('%cNueva aplicación suscrita al sistema meteorológico.', COLORS.green);
   }
 
