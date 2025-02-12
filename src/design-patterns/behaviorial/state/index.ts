@@ -1,5 +1,6 @@
 import { COLORS } from '../../../libs/colors.ts';
 import { sleep } from '../../../libs/sleep.ts';
+import { AutomaticDoor } from './contexts/automatic-door.ts';
 import { VendingMachine } from './contexts/vending-machine.ts';
 /**
  * ! Patrón State
@@ -62,4 +63,38 @@ export const mainState = async () => {
     }
     await sleep(2000);
   } while (selectOption !== '4');
+
+  console.log('\n-------------------\n');
+
+  const door = new AutomaticDoor();
+  let selectedOption: string | null = '3';
+
+  do {
+    console.clear();
+    console.log(`Estado actual: ${door.getStateName()}`);
+    selectedOption = prompt(`
+      1. Abrir puerta
+      2. Cerrar puerta
+      3. Salir
+
+      Selecciona una opción: 
+    `);
+
+    switch (selectedOption) {
+      case '1':
+        door.open();
+        break;
+      case '2':
+        door.close();
+        break;
+      case '3':
+        console.log('Saliendo del simulador...');
+        break;
+      default:
+        console.log('Opción no válida.');
+        break;
+    }
+
+    await sleep(2000);
+  } while (selectedOption !== '3');
 };
