@@ -1,5 +1,6 @@
 import { COLORS } from '../../../libs/colors.ts';
 import { Coffee, Tea } from './concretes/hot-beverage.concretes.ts';
+import { ConferenceRoomCleaning, HotelRoomCleaning, OfficeCleaning } from './concretes/room-cleaning.concretes.ts';
 /**
  * ! Patrón Template Method
  *
@@ -37,4 +38,18 @@ export const mainTemplateMethod = () => {
   console.log('\n%cPreparando café', COLORS.brown);
   const coffee = new Coffee();
   coffee.prepare();
+
+  console.log('\n-------------------------\n');
+
+  console.log('%cLimpieza de una habitación de hotel:', COLORS.blue);
+  const hotelRoom = new HotelRoomCleaning();
+  hotelRoom.cleanRoom();
+
+  console.log('%cLimpieza de una sala de conferencias:', COLORS.purple);
+  const conferenceRoom = new ConferenceRoomCleaning();
+  conferenceRoom.cleanRoom();
+
+  console.log('%cLimpieza de una oficina:', COLORS.orange);
+  const office = new OfficeCleaning();
+  office.cleanRoom();
 };
