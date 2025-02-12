@@ -7,6 +7,7 @@ import { mainObserver } from './design-patterns/behaviorial/observer/index.ts';
 import { mainState } from './design-patterns/behaviorial/state/index.ts';
 import { mainStrategy } from './design-patterns/behaviorial/strategy/index.ts';
 import { mainTemplateMethod } from './design-patterns/behaviorial/template-method/index.ts';
+import { mainVisitor } from './design-patterns/behaviorial/visitor/index.ts';
 import { mainAbstractFactory } from './design-patterns/creational/abstract-factory/index.ts';
 import { MainBuilder } from './design-patterns/creational/builder/index.ts';
 import { mainFactoryFunction } from './design-patterns/creational/factory-function/index.ts';
@@ -72,6 +73,9 @@ const main = () => {
   mainStrategy();
   console.log('🔶 Pattern Template Method::::: ✳️');
   mainTemplateMethod();
+  console.log('🔶 Pattern Visitor::::: ✳️');
+  mainVisitor();
+  console.log('🔶 All patterns have been executed successfully ✳️');
 };
 
 main();
