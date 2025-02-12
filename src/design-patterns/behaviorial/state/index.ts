@@ -61,7 +61,7 @@ export const mainState = async () => {
         console.log('Adiós 👋');
         break;
     }
-    await sleep(2000);
+    // await sleep(2000);
   } while (selectOption !== '4');
 
   console.log('\n-------------------\n');
@@ -95,6 +95,6 @@ export const mainState = async () => {
         break;
     }
 
-    await sleep(2000);
+    // await sleep(2000);
   } while (selectedOption !== '3');
 };
