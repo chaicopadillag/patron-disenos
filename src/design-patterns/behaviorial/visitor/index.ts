@@ -1,7 +1,10 @@
 import { COLORS } from '../../../libs/colors.ts';
 import { FerrisWheel, HauntedHouse, RollerCoaster } from './elements/attractions.elements.ts';
+import { Car, Motorcycle, Truck } from './elements/vehicles.elements.ts';
 import { Attraction } from './interfaces/attraction.interface.ts';
+import { Vehicle } from './interfaces/vehicle.interface.ts';
 import { AdultVisitor, ChildVisitor, SeniorVisitor } from './visitors/attraction.visitors.ts';
+import { EmissionCheckVisitor, MaintenanceCostVisitor } from './visitors/vehicles.visitors.ts';
 /**
  * !Patrón Visitor
  *
@@ -48,5 +51,24 @@ export const mainVisitor = () => {
   const seniorVisitor = new SeniorVisitor();
   attractions.forEach((attraction) => attraction.accept(seniorVisitor));
 
-  console.log('\n');
+  console.log('\n-------------------------\n');
+  /**
+   * !Objetivo:
+   * Implementar el patrón Visitor en un sistema de gestión de vehículos
+   * que permite realizar operaciones específicas sobre diferentes
+   * tipos de vehículos (automóviles, motocicletas y camiones).
+   *
+   * Estas operaciones incluyen calcular el costo de mantenimiento
+   * y verificar si los vehículos cumplen con las normas de emisión.
+   */
+
+  const vehicles: Vehicle[] = [new Car(2018, 50_000), new Motorcycle(2015, 30_000), new Truck(2012, 250_000, 20)];
+
+  console.log('%c\nCalculando costos de mantenimiento:', COLORS.green);
+  const maintenanceVisitor = new MaintenanceCostVisitor();
+  vehicles.forEach((vehicle) => vehicle.accept(maintenanceVisitor));
+
+  console.log('%c\nVerificando emisiones:', COLORS.green);
+  const emissionVisitor = new EmissionCheckVisitor();
+  vehicles.forEach((vehicle) => vehicle.accept(emissionVisitor));
 };
