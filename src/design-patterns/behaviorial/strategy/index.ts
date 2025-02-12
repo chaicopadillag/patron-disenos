@@ -1,5 +1,8 @@
+import { COLORS } from '../../../libs/colors.ts';
 import { Docky } from './contexts/docky.ts';
+import { TaxCalculator } from './contexts/tax-calculator.ts';
 import { FlyStrategy, SwimFastStrategy, WalkStrategy } from './strategies/ducky.strategy.ts';
+import { CanadaTaxStrategy, GermanyTaxStrategy, USATaxStrategy } from './strategies/tax.strategy.ts';
 /**
  * ! Patrón Strategy
  *
@@ -34,4 +37,17 @@ export const mainStrategy = () => {
 
   daisy.setMoveStrategy(new WalkStrategy());
   daisy.performMove();
+  console.log('\n-------------------------\n');
+  const taxCalculator = new TaxCalculator(new USATaxStrategy());
+
+  console.log('%cCálculo de impuestos:\n', COLORS.red);
+  console.log('USA: $', taxCalculator.calculate(100).toFixed(2));
+
+  console.log('\nCambiando a estrategia para Canada...');
+  taxCalculator.setStrategy(new CanadaTaxStrategy());
+  console.log('Canada: $', taxCalculator.calculate(100).toFixed(2));
+
+  console.log('\nCambiando a estrategia para Germany...');
+  taxCalculator.setStrategy(new GermanyTaxStrategy());
+  console.log('Germany: $', taxCalculator.calculate(100).toFixed(2));
 };
